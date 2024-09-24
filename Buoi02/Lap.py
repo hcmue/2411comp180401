@@ -10,3 +10,4 @@ for item in range(2, 23, 3): # 2, 5, 8, 11, 14, 17, 20
 print()
 
 print("Python", "Programming", 2024, sep="/")
+
