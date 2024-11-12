@@ -7,6 +7,7 @@
 ```
 pip install "fastapi[standard]"
 pip install sqlmodel
+pip install pymysql
 ```
 
 ## Run
