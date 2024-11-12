@@ -15,3 +15,7 @@ pip install pymysql
 ```
 fastapi dev main.py
 ```
+
+## Tham khảo cách trả về kiểu khác
+
+https://fastapi.tiangolo.com/advanced/custom-response

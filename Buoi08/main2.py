@@ -3,6 +3,8 @@ from typing import Annotated
 
 from fastapi import Depends, FastAPI, HTTPException, Query
 from sqlmodel import Field, Session, SQLModel, create_engine, select
+from fastapi.responses import HTMLResponse
+
 
 app = FastAPI()
 
@@ -56,6 +58,21 @@ def read_students(
     students = session.exec(select(Student).offset(offset).limit(limit)).all()
     return students
 
+
+@app.get("/students/html", response_class=HTMLResponse)
+async def read_items(session: SessionDep):
+    students = session.exec(select(Student))
+    print(students)
+    return """
+    <html>
+        <head>
+            <title>Student List</title>
+        </head>
+        <body>
+            <h1>Student List</h1>
+        </body>
+    </html>
+    """
 
 @app.get("/students/{student_id}")
 def read_student(student_id: int, session: SessionDep) -> Student:
